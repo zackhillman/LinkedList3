@@ -126,17 +126,21 @@ public class Student implements Comparable<Student>, Serializable{
 					return lastName.compareTo((o).getLastName());
 				}
 			}else{
-				if (gpa-o.getGPA()==0)
-					return 0;
-				else if(gpa<o.getGPA())
-					return -1;
-				else
-					return 1;
+				
+				return Double.compare(gpa, o.getGPA());
+				
 			}
 		
 	}
-	
-	public static void toggleSort(){
+	/**
+	 * This method toggles the boolean between GPA and last name for adding
+	 * @return the String to display the type of sorting being used
+	 */
+	public static String toggleSort(){
 		sortType = !sortType;
+		if(sortType)
+			return "Last Name";
+		else
+			return "GPA";
 	}
 }
